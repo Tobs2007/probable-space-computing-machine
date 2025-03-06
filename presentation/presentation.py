@@ -1,6 +1,34 @@
-print(__file__)
-for x in range(0,7):
-    f = open("dyn.typ","w")
-    f.write('#include "folien/f'+str(x)+'.typ"')
-    f.close()
-    input()
+import os
+global dir
+dir = __file__[:-15]
+
+
+def build():
+    os.remove(dir+"dyn.typ")
+    f=open(dir+"dyn.typ","a")
+    for x in os.listdir(dir+"folien"):
+        if x[-3:]=="typ":
+            f.write('#include "folien/'+x+'"\n#pagebreak()\n')
+
+
+def presentation():
+    foils=[]
+    for x in os.listdir(dir+"folien"):
+        if x[0]=="f" and x[-3:]:
+            foils.append(x)
+    print(foils)
+    for x in range(len(foils)):
+        input()
+        f = open(dir+"dyn.typ","w")
+        f.write('#include "folien/f'+str(x)+'.typ"')
+        f.close()
+
+
+
+
+
+inp=input("0: build  |  1: presentation:")
+if inp=="1":
+    presentation()
+elif inp=="0":
+    build()
