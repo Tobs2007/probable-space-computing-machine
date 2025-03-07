@@ -4,12 +4,16 @@ dir = __file__[:-15]
 
 
 def build():
+    foils=[]
     os.remove(dir+"dyn.typ")
     f=open(dir+"dyn.typ","a")
     for x in os.listdir(dir+"folien"):
-        if x[-3:]=="typ":
-            f.write('#include "folien/'+x+'"\n#pagebreak()\n')
-
+        if x[0]=="f" and x[-3:]:
+            foils.append(x)
+    print(foils)
+    for x in range(len(foils)-1):
+        f.write('#include "folien/f'+str(x)+'.typ"\n#pagebreak()\n')
+    f.write('#include "folien/f'+str(len(foils)-1)+'.typ"')
 
 def presentation():
     foils=[]
