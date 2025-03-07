@@ -1,7 +1,7 @@
 = was wir brauchen:
-#set text(size: 11.47pt)
+// #set text(size: 11.47pt)
 
-+ Hardware
+= Hardware
   - Switch
     - verteilt ein Netzwerk zu mehreren punkten
   - Kabel (Kupfer)

@@ -1,6 +1,6 @@
 #set text(size: 11.47pt)
 
-+ Software
+= Software
   - DNS 
     - domain name system
     - verwaltet die Verbindung zwischen Hosts
